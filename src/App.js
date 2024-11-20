@@ -6,6 +6,7 @@ import DashLayout from './components/DashLayout'
 import Welcome from './features/auth/Welcome'
 import NotesList from './features/notes/NotesList'
 import UserList from './features/users/UsersList'
+import Public from './components/Public'
 
 
 
