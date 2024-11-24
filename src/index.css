@@ -65,7 +65,7 @@ body {
   background-color: var(--BGCOLOR);
   color: var(--COLOR);
   /* background-image: url('./img/background.jpg'); */
-  background-color: #000;
+  background-color: cyan;
   background-size: cover;
   background-position: top right;
   background-blend-mode: multiply;
