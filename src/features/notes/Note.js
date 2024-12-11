@@ -17,7 +17,7 @@ const Note = ({ noteId }) => {
         const created = new Date(note.createdAt).toLocaleString('en-IN', { day: 'numeric', month: 'long' })
         const updated = new Date(note.updatedAt).toLocaleString('en-IN', { day: 'numeric', month: 'long' })
 
-        const handleEdit = navigate(`/dash/notes/${noteId}`)
+        const handleEdit = () => navigate(`/dash/notes/${noteId}`)
 
         return (
             <tr className='table___row'>
