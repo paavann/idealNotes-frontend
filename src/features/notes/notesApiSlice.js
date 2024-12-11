@@ -46,17 +46,17 @@ export const notesApiSlice = apiSlice.injectEndpoints({
     }),
 })
 
-export const { useGetNotesQuery } = notesApiSlice //creates a custom hook for  use
+export const { useGetNotesQuery, } = notesApiSlice //creates a custom hook for  use
 
-export const selectnotesResult = notesApiSlice.endpoints.getnotes.select() //var for selecting result
+export const selectNotesResult = notesApiSlice.endpoints.getnotes.select() //var for selecting result
 
-const selectnotesData = createSelector(
-    selectnotesResult,
-    notesResult => notesResult.data || initialState
+const selectNotesData = createSelector(
+    selectNotesResult,
+    notesResult => notesResult.data
 ) 
 
 export const {
     selectAll: selectAllnotes,
     selectById: selectNotesById,
     selectIds: selectNotesIds
-} = notesAdapter.getSelectors(state => selectnotesData(state) || initialState);
+} = notesAdapter.getSelectors(state => selectNotesData(state) ?? initialState);
