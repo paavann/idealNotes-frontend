@@ -33,7 +33,7 @@ export const usersApiSlice = apiSlice.injectEndpoints({
                 if (result?.ids) {
                     return [
                         { type: 'User', id: 'LIST' },
-                        ...result.ids.map(id => ({ type: 'Users', id })) //id => () implicitly returns
+                        ...result.ids.map(id => ({ type: 'User', id })) //id => () implicitly returns
                     ]
                 } else {
                     return [{ type: 'User', id: 'LIST' }] 
@@ -44,17 +44,17 @@ export const usersApiSlice = apiSlice.injectEndpoints({
 })
  //?
 
-export const { useGetUsersQuery } = usersApiSlice //creates a custom hook for  use
+export const { useGetUsersQuery, } = usersApiSlice //creates a custom hook for  use
 
 export const selectUsersResult = usersApiSlice.endpoints.getUsers.select() //var for selecting result
 
 const selectUsersData = createSelector(
     selectUsersResult,
-    UsersResult => UsersResult.data || initialState
+    usersResult => usersResult.data
 ) 
 
 export const {
     selectAll: selectAllUsers,
     selectById: selectUserById,
     selectIds: selectUserIds
-} = usersAdapter.getSelectors(state => selectUsersData(state) || initialState);
+} = usersAdapter.getSelectors(state => selectUsersData(state) ?? initialState);
